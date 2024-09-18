@@ -1,7 +1,7 @@
 # 3DOrganoidAnalysis_
  - This repository contains a robust methodology for identifying and characterizing organoids using the Cellpose algorithm.
 - The script allows for precise 3D identification of individual organoids based on the overlay of GFP and Tomato markers
-- 
+  
 ## Download 3DOrganoidAnalysis_
 1. Go to the ``GitHub`` repository
 2. Click on ``<Code>``>``Download ZIP``
