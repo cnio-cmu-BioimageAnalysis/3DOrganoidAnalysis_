@@ -33,23 +33,23 @@ import mcib3d.image3d.ImageInt
 
 // INPUT UI
 //
-//#@File(label = "Input Segmentation Files Directory", style = "directory") inputFilesSeg
-//#@File(label = " Input Raw Files Directory", style = "directory") inputFilesRaw
-//#@File(label = "output directory", style = "directory") outputDir
-//#@Integer(label = "Nuclei channel", value = 2) nucleiChannel
-//#@Integer(label = "Telomere channel", value = 0) telomereChannel
-//#@Integer(label = "Marker channel", value = 1) markerChannel
+#@File(label = "Input Segmentation Files Directory", style = "directory") inputFilesOrganoid
+#@File(label = " Input Raw Files Directory", style = "directory") inputFilesRaw
+#@File(label = "output directory", style = "directory") outputDir
+#@Integer(label = "Tomato Channel", value = 1) tomaChannel
+#@Integer(label = "GFP Channel", value = 0) gfpChannel
+
 
 
 // IDE
 //
 //
-def inputFilesOrganoid = new File("/mnt/imgserver/CONFOCAL/IA/Projects/2024/2024_06_05_elapi/output/labels")
+/*def inputFilesOrganoid = new File("/mnt/imgserver/CONFOCAL/IA/Projects/2024/2024_06_05_elapi/output/labels")
 def inputFilesRaw = new File("/mnt/imgserver/CONFOCAL/IA/Projects/2024/2024_06_05_elapi/output/images_cal")
 def inputFilesCal = new File("/mnt/imgserver/CONFOCAL/IA/Projects/2024/2024_06_05_elapi/output/images_noCal")
 def outputDir = new File("/mnt/imgserver/CONFOCAL/IA/Projects/2024/2024_06_05_elapi/output")
 def tomaChannel = 1.intValue()
-def gfpChannel = 0.intValue()
+def gfpChannel = 0.intValue()*/
 //def headless = true;
 //new ImageJ().setVisible(true);
 
@@ -81,7 +81,7 @@ for (def i = 0; i < listOfFiles.length; i++) {
         /** Get astrophere labels */
         labelOrganoid = new ImagePlus(inputFilesOrganoid.getAbsolutePath() + File.separator + listOfFiles[i].getName().replaceAll(".tif", "_cp_masks.tif"))
         labelOrganoid.setCalibration(cal)
-        def impRaw = new ImagePlus(inputFilesCal.getAbsolutePath() + File.separator + listOfFiles[i].getName().replaceAll(".tif", "_cp_masks.tif"))
+        def impRaw = new ImagePlus(inputFilesRaw.getAbsolutePath() + File.separator + listOfFiles[i].getName().replaceAll(".tif", "_cp_masks.tif"))
         def pixelSize = impRaw.getCalibration().pixelWidth / (2.0)
         IJ.run(labelOrganoid, "Set Scale...", String.format("distance=%f known=1 unit=micron", pixelSize));
 
@@ -145,7 +145,7 @@ for (def i = 0; i < listOfFiles.length; i++) {
         /** Get astrophere labels */
         labelOrganoid = new ImagePlus(inputFilesOrganoid.getAbsolutePath() + File.separator + listOfFiles[i].getName().replaceAll(".tif", "_cp_masks.tif"))
         labelOrganoid.setCalibration(cal)
-        def impRaw = new ImagePlus(inputFilesCal.getAbsolutePath() + File.separator + listOfFiles[i].getName().replaceAll(".tif", "_cp_masks.tif"))
+        def impRaw = new ImagePlus(inputFilesRaw.getAbsolutePath() + File.separator + listOfFiles[i].getName().replaceAll(".tif", "_cp_masks.tif"))
         def pixelSize = impRaw.getCalibration().pixelWidth / 2
         IJ.run(labelOrganoid, "Set Scale...", String.format("distance=%f known=1 unit=micron", pixelSize));
 
