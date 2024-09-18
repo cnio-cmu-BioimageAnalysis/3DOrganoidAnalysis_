@@ -8,7 +8,7 @@
 3. The repo will be found at ``Downloads`` directory.
 4. 
 ### Running 3DOrganoidAnalysis_ in headless mode through ImageJ/Windows Windows Terminal (ALL parameters)
-``ImageJ-win64.exe --ij2 --headless --run "/absolute_path/to/groovyscript/3DOrganoidAnalysisAll_.groovy" "headless=true``
+``ImageJ-win64.exe --ij2 --headless --run "/absolute_path/to/groovyscript/3DOrganoidAnalysisAll_.groovy" "inputFilesOrganoid=/home/anaacayuela/organoid_labels,inputFilesRaw=/home/anaacayuela/organoid_raw_images,outputDir=/home/anaacayuela/output,tomaChannel=0,gfpChannel=1"``
 
 ### Parameters Explanation: 
 - ``inputFilesOrganoid`` : Directory in which the images (tiff, png... files ``cp_masks.tiff``) to be analyzed are located. e.g.``'/home/anaacayuela/organoid_labels'``
